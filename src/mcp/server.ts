@@ -92,6 +92,6 @@ function jsonToolResult(result: BatchProcessResult) {
         text: JSON.stringify(result, null, 2),
       },
     ],
-    structuredContent: result,
+    structuredContent: result as unknown as Record<string, unknown>,
   };
 }
