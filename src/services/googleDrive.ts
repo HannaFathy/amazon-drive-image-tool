@@ -169,7 +169,7 @@ export class GoogleDriveService {
       },
       media: {
         mimeType,
-        body: Readable.fromWeb(response.body),
+        body: Readable.from(Buffer.from(await response.arrayBuffer())),
       },
       fields: "id,name,webViewLink",
       supportsAllDrives: true,
