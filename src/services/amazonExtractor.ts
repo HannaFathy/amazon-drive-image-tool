@@ -293,7 +293,7 @@ async function collectGalleryImageUrls(page: Page): Promise<string[]> {
         continue;
       }
 
-      for (const image of container.querySelectorAll("img")) {
+      for (const image of Array.from(container.querySelectorAll("img"))) {
         add(image.getAttribute("data-old-hires"));
         add(image.getAttribute("data-a-hires"));
         add(image.getAttribute("data-src"));
