@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: amazon-drive-image-tool
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: false
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: BIND_HOST
+        value: 0.0.0.0
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: AUTH_REQUIRED
+        value: true
+      - key: DEV_BEARER_TOKEN
+        sync: false
+      - key: OAUTH_ISSUER_URL
+        sync: false
+      - key: OAUTH_AUDIENCE
+        sync: false
+      - key: OAUTH_JWKS_URL
+        sync: false
+      - key: REQUIRED_SCOPES
+        value: amazon-drive-image-tool:write
+      - key: DEFAULT_PARENT_FOLDER_ID
+        value: 1bH22h21qlMyaROq748jJy0JuC2s3kuBg
+      - key: GOOGLE_APPLICATION_CREDENTIALS_JSON
+        sync: false
+      - key: MAX_URLS_PER_RUN
+        value: 20
+      - key: MAX_IMAGES_PER_PRODUCT
+        value: 20
+      - key: MAX_CONCURRENT_PRODUCTS
+        value: 5
+      - key: EXTRACTOR_TIMEOUT_MS
+        value: 45000
